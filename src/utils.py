@@ -61,5 +61,11 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
     except Exception as e:
         raise CustomException(e, sys)    
         
-        
-
+## to load the pickle files in read by mode passing file path
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            logging.info("Loading object")
+            return dill.load(file_obj)
+    except Exception as e:
+        raise CustomException(e, sys)
